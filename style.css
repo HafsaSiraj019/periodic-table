@@ -1,0 +1,206 @@
+/* General Body and Container Styles */
+body {
+    background-color: #bd82bb; /* A light, neutral background for the page */
+    font-family: 'Arial', sans-serif; /* A more common and readable font */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content horizontally */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    margin: 0; /* Remove default body margin */
+    padding: 20px; /* Add some padding around the content */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    overflow-x: hidden; /* Prevent horizontal scroll if elements slightly overflow */
+}
+
+h2 {
+    background-color: #5d074e; /* Deeper purple */
+    width: fit-content; /* Adjust width to content, not fixed 400px */
+    padding: 10px 30px; /* Add horizontal padding */
+    line-height: normal; /* Reset line-height if it's causing issues */
+    border-radius: 8px; /* Slightly smoother corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Softer, more visible shadow */
+    color: white;
+    margin-bottom: 30px; /* More space below the heading */
+    text-transform: uppercase; /* Make the heading stand out */
+    letter-spacing: 2px; /* Add some spacing between letters */
+}
+
+/* Table Specific Styles */
+table {
+    border-collapse: separate; /* Allows border-spacing for gaps between cells */
+    border-spacing: 4px; /* Creates small gaps between cells */
+    background-color: transparent; /* Ensure table background is transparent */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.423); /* More prominent shadow for the whole table */
+    border-radius: 10px; /* Slightly rounded corners for the entire table container */
+    padding: 5px; /* Add a little padding inside the table to make borders clearer */
+}
+
+/* Table Data Cells (Elements) */
+td {
+    width: 65px; /* Slightly larger elements */
+    height: 65px; /* Slightly larger elements */
+    text-align: center;
+    border-radius: 6px; /* Smoother corners for individual elements */
+    font-size: 14px; /* Adjusted font size for better fit */
+    color: #333; /* Default text color for element symbols/names */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth hover effect */
+    cursor: default; /* Indicate they are interactive (even without JS) */
+    position: relative; /* For precise positioning of number/name */
+
+    /* --- 2D/3D Look & Borders --- */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle light border for separation */
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1), /* Inner highlight */
+        inset 0 0 0 2px rgba(0, 0, 0, 0.05),    /* Inner shadow */
+        0 2px 5px rgba(0, 0, 0, 0.15),           /* Main element shadow */
+        0 1px 0 rgba(255, 255, 255, 0.1) inset; /* Top highlight for subtle 3D */
+    transform-style: preserve-3d; /* Enable 3D transformations for children */
+}
+
+td:hover {
+    transform: translateY(-5px) scale(1.05); /* Lift higher and slightly enlarge on hover */
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2), /* Inner highlight on hover */
+        inset 0 0 0 2px rgba(0, 0, 0, 0.1),    /* Inner shadow on hover */
+        0 8px 20px rgba(0, 0, 0, 0.3),           /* Stronger main shadow on hover */
+        0 3px 0 rgba(255, 255, 255, 0.1) inset; /* Increased top highlight */
+}
+
+
+/* Inner Paragraphs for Number and Name */
+p {
+    background-color: transparent; /* Ensure no background here */
+    margin: 0; /* Remove default paragraph margins */
+    padding: 0; /* Remove default paragraph padding */
+}
+
+.number {
+    font-size: 11px; /* Slightly larger and clearer number */
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
+    text-align: left; /* Align number to top-left */
+    position: absolute; /* Position absolutely within the td */
+    top: 5px;
+    left: 5px;
+    line-height: 1; /* Ensure no extra line height */
+    /* Add a subtle text shadow for better readability on darker backgrounds */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.name {
+    font-size: 20px; /* Larger, more prominent element name */
+    font-weight: bold;
+    color: white; /* Make element names white for contrast */
+    line-height: 1; /* Ensure no extra line height */
+    position: absolute; /* Position absolutely within the td */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the name */
+    /* Add a subtle text shadow for better readability */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Category Colors - Keeping your current palette */
+.category1 {
+    background-color: #8c0f78;
+}
+
+.category2 {
+    background-color: #a41b8a;
+}
+
+.category3 {
+    background-color: #bb289d;
+    color: white; /* Ensure text is visible */
+}
+
+.category4 {
+    background-color: #d136b0;
+    color: white; /* Ensure text is visible */
+}
+
+.category5 {
+    background-color: #e24fc3;
+    color: white; /* Ensure text is visible */
+}
+
+.category6 {
+    background-color: #f067d5;
+    color: #333; /* Darker text for lighter background */
+}
+
+.category7 {
+    background-color: #f583e0;
+    color: #333;
+}
+
+.category8 {
+    background-color: #f7a0e7;
+    color: #333;
+}
+
+/* Special Case for Spacers (td with colspan) */
+td[colspan="16"],
+td[colspan="10"] {
+    background-color: transparent !important; /* Make sure these are truly invisible */
+    box-shadow: none !important; /* Remove any shadows */
+    border: none !important; /* Remove borders from spacers */
+    pointer-events: none; /* Prevent interaction with these cells */
+}
+
+/* Styling for the bottom block of elements (Lanthanides/Actinides) */
+center + br + center > table {
+    margin-top: 20px; /* Space between main table and bottom block */
+    border-spacing: 4px; /* Apply same spacing as main table */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lighter shadow for the block */
+    border-radius: 10px;
+    padding: 5px; /* Padding for the bottom table too */
+}
+
+center + br + center > table td {
+    width: 60px; /* Slightly smaller for the bottom block */
+    height: 60px;
+    background-color: rgb(139, 61, 129); /* Your specified color for this block */
+    color: white; /* Ensure text is visible */
+    border-radius: 6px;
+    /* Apply similar border and 3D effects */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 0 0 2px rgba(0, 0, 0, 0.05),
+        0 2px 5px rgba(0, 0, 0, 0.15),
+        0 1px 0 rgba(255, 255, 255, 0.1) inset;
+    transform-style: preserve-3d;
+}
+
+center + br + center > table td:hover {
+    transform: translateY(-3px) scale(1.05); /* Lift higher and slightly enlarge on hover */
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+        inset 0 0 0 2px rgba(0, 0, 0, 0.1),
+        0 6px 12px rgba(0, 0, 0, 0.25),
+        0 3px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+
+center + br + center > table td .number,
+center + br + center > table td .name {
+    color: white; /* Keep text white for consistency */
+    text-shadow: 1px 1px 2px rgba(225, 28, 28, 0.3); /* Add text shadow */
+}
+
+
+p {
+    /* This rule will catch the "Prepared By HAFSA SIRAJ" paragraph */
+    background-color:  rgb(141, 105, 141); /* Ensure it doesn't get the purple background */
+    color: #5d074e; /* A nice matching color */
+    font-size: 16px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Specific text color for white text in HTML (if still used) */
+span[style="color: white;"] {
+    color: white !important; /* Force white color where explicitly set in HTML */
+    background-color: transparent !important; /* Prevent background from this span */
+}
